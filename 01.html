@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+      ul { list-style: none;}
+      ul li { font-size: 20px; line-height: 35px; cursor: pointer;}
+      ul li span {  margin-right: 25px;}
+      ul li:hover span { color: red; }
+      .red {color: red; font-weight: bold;}
+      .gry {color: gray; font-weight: normal;}
+    </style>
+</head>
+<body>
+  <h1>점심 목록</h1>  
+  <ul>
+      <li><span>&check;</span> 짜장면 1</li>
+      <li><span>&check;</span> 탕수육 2</li>
+      <li><span>&check;</span> 피자 3</li>
+      <li><span>&check;</span> 햄버거 4</li>
+      <li><span>&check;</span> 냉면 5</li>
+  </ul>
+  <script>
+    let list = document.querySelectorAll('li');
+    
+    for (let i = 0; i<list.length; i++){
+        list[i].onclick = function() {
+            for (let i = 0; i<list.length; i++){
+                list[i].classList.add('gry');
+            }
+            // this.classList.remove('gry');
+            // this.classList.add('red');
+            this.className = 'red'; // 지우고 다시 더할 필요없이 그 전에 있던 클래스를 다 지우고 하나만 추가하는 문법
+        }
+    }
+  </script>
+</body>
+</html>

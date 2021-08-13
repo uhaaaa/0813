@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sticky</title>
+    <style>
+      html {scroll-behavior: smooth;}
+      body {margin: 0;}
+      header {text-align:center; padding: 30px;}
+      nav {background-color: #333; transition: .5s; margin: 0; overflow: hidden;}
+      nav ul {padding: 0; list-style: none;}
+      nav ul li {display: inline-block; padding: 10px 30px;}
+      nav ul li a {color: #fff; text-decoration: none;}
+      nav ul li:hover a {color: skyblue;}
+
+      #box { width: 100%; height: 8px; background-color: #ccc;}
+      #box .bar { height: 100%; background-color: #4b4b4b; width: 0%; }
+
+      #content {padding: 30px;}
+      .sticky {position: fixed; top: 0; width: 100%; background-color: darkgreen;}
+      .sticky + #content {padding-top: 100px;}
+
+      .btntop {display: none ;width: 50px; height: 50px; text-align: center; 
+                line-height: 50px; background-color: darkgreen; color: #fff;
+                text-decoration: none; position: fixed; right: 20px; bottom: 50px;
+                 z-index: 10; transition: .5s;}
+      .on {display: block;}
+    </style>
+</head>
+<body> <!--scroll을 움질일때 함수 동작-->
+  <header id="top">
+    <h1>메뉴단 고정</h1>
+    <p>sticky 효과 상단 고정하기</p>
+  </header>  
+  <nav>
+    <ul class="menu">
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">NOTICE</a></li>
+        <li><a href="#">CONTACT</a></li>
+    </ul>
+    <div id="box">
+        <div class="bar"></div>
+    </div>
+  </nav>
+  
+  <div id="content">
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non officia beatae sequi est veritatis odit architecto voluptates! Tempora ducimus eius, officia, quidem pariatur culpa unde facere nisi ullam doloribus harum!</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non officia beatae sequi est veritatis odit architecto voluptates! Tempora ducimus eius, officia, quidem pariatur culpa unde facere nisi ullam doloribus harum!</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non officia beatae sequi est veritatis odit architecto voluptates! Tempora ducimus eius, officia, quidem pariatur culpa unde facere nisi ullam doloribus harum!</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non officia beatae sequi est veritatis odit architecto voluptates! Tempora ducimus eius, officia, quidem pariatur culpa unde facere nisi ullam doloribus harum!</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non officia beatae sequi est veritatis odit architecto voluptates! Tempora ducimus eius, officia, quidem pariatur culpa unde facere nisi ullam doloribus harum!</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non officia beatae sequi est veritatis odit architecto voluptates! Tempora ducimus eius, officia, quidem pariatur culpa unde facere nisi ullam doloribus harum!</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non officia beatae sequi est veritatis odit architecto voluptates! Tempora ducimus eius, officia, quidem pariatur culpa unde facere nisi ullam doloribus harum!</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non officia beatae sequi est veritatis odit architecto voluptates! Tempora ducimus eius, officia, quidem pariatur culpa unde facere nisi ullam doloribus harum!</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non officia beatae sequi est veritatis odit architecto voluptates! Tempora ducimus eius, officia, quidem pariatur culpa unde facere nisi ullam doloribus harum!</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non officia beatae sequi est veritatis odit architecto voluptates! Tempora ducimus eius, officia, quidem pariatur culpa unde facere nisi ullam doloribus harum!</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non officia beatae sequi est veritatis odit architecto voluptates! Tempora ducimus eius, officia, quidem pariatur culpa unde facere nisi ullam doloribus harum!</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non officia beatae sequi est veritatis odit architecto voluptates! Tempora ducimus eius, officia, quidem pariatur culpa unde facere nisi ullam doloribus harum!</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non officia beatae sequi est veritatis odit architecto voluptates! Tempora ducimus eius, officia, quidem pariatur culpa unde facere nisi ullam doloribus harum!</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non officia beatae sequi est veritatis odit architecto voluptates! Tempora ducimus eius, officia, quidem pariatur culpa unde facere nisi ullam doloribus harum!</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non officia beatae sequi est veritatis odit architecto voluptates! Tempora ducimus eius, officia, quidem pariatur culpa unde facere nisi ullam doloribus harum!</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non officia beatae sequi est veritatis odit architecto voluptates! Tempora ducimus eius, officia, quidem pariatur culpa unde facere nisi ullam doloribus harum!</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non officia beatae sequi est veritatis odit architecto voluptates! Tempora ducimus eius, officia, quidem pariatur culpa unde facere nisi ullam doloribus harum!</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non officia beatae sequi est veritatis odit architecto voluptates! Tempora ducimus eius, officia, quidem pariatur culpa unde facere nisi ullam doloribus harum!</p>
+  </div>
+  <a href="#top" class="btntop">TOP</a>
+  <script>
+    let nav = document.querySelector('nav');
+    let navtop = nav.offsetTop;
+
+    window.onscroll = function() { //window에서 onscroll이 일어나면 함수 작동
+        let scroll = window.pageYOffset; //세로방향 스크롤된 좌푯값
+        console.log(scroll);
+
+        if (navtop <= scroll) {
+            nav.classList.add('sticky');
+        }
+        else {
+            nav.classList.remove('sticky');
+        }
+
+        let topbtn = document.querySelector('.btntop');
+        if ( scroll > 400) {
+            topbtn.classList.add('on');
+        }
+        else {
+            topbtn.classList.remove('on');
+        }
+
+
+         let winscroll = document.documentElement.scrollTop; // 세로방향 스크롤된 좌푯값( = window.pageYOffset)
+         let scrollHeight = document.documentElement.scrollHeight; // 스크롤 전체의 세로길이 즉 브라우저 전체의 길이
+         let clientHeight = document.documentElement.clientHeight; // 보이는 화면의 세로길이 
+
+         let height = scrollHeight - clientHeight; //화면에 보이지 않는 남은 화면의 길이
+         let scrolled = (winscroll / height) * 100 //스크롤 된 양(%) = (스크롤 Y좌표 / 남은 화면의 길이) * 100
+
+         let bar = document.querySelector('.bar');
+         bar.style.width = scrolled + '%';
+    }
+  </script>
+</body>
+</html>

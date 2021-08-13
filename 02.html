@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Node</title>
+    <style>
+      .accent {border: 1px solid #222; padding: 15px 20px; background-color: pink;}
+      .bold {font-weight: bold;}
+    </style>
+</head>
+<body>
+  <!--<button class="close">click !</button>-->
+  <script>
+    let newTagP = document.createElement('p');
+    let newText = document.createTextNode('주문이 완료되었습니다.'); 
+    newTagP.appendChild(newText);
+    let attr = document.createAttribute('class');
+    attr.value = 'accent';
+    newTagP.setAttributeNode(attr);
+
+    console.log(newTagP);
+    document.body.appendChild(newTagP); //자바스크립트로 바디에 태그와 내용, 속성 등을 넣는 문법
+
+    let newTagA = document.createElement('a');
+    let newTextA = document.createTextNode('네이버 바로가기');
+
+    newTagA.appendChild(newTextA);
+    console.log(newTagA);
+
+    let href = document.createAttribute('href');
+    href.value = 'https://www.naver.com/';
+    newTagA.setAttributeNode(href); // 자식으로 넣을때 : appendChild, 속성으로 넣을때 : setAttributeNode ;
+    document.body.appendChild(newTagA);
+
+    let newTagBtn = document.createElement('button');
+    let newBtnText = document.createTextNode('click !');
+    newTagBtn.appendChild(newBtnText);
+    let btnAttr = document.createAttribute('class');
+    btnAttr.value = 'close';
+    newTagBtn.setAttributeNode(btnAttr);
+
+    console.log(newTagBtn);
+    document.body.appendChild(newTagBtn);
+
+  </script>  
+</body>
+</html>
